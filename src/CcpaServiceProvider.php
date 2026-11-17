@@ -2,17 +2,18 @@
 
 namespace JeffersonGoncalves\Filament\Ccpa;
 
+use JeffersonGoncalves\FilamentPluginCore\BasePackageServiceProvider;
 use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class CcpaServiceProvider extends PackageServiceProvider
+class CcpaServiceProvider extends BasePackageServiceProvider
 {
+    public static string $name = 'filament-ccpa';
+
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('filament-ccpa')
-            ->hasConfigFile()
+            ->name(static::$name)
             ->hasViews()
-            ->hasMigrations();
+            ->hasTranslations();
     }
 }
